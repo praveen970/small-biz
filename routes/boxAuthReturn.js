@@ -23,7 +23,8 @@ router.get('/', function(req, res) {
             if (err) {
                 console.error(err);
             }
-
+        vartoken = tokenInfo;
+            res.render('index');
             // Create new persistent client with token storage
             var client = sdk.getPersistentClient(tokenInfo, tokenStore);
 
@@ -32,11 +33,11 @@ router.get('/', function(req, res) {
             //     if(err) throw err;
             //     res.send(currentUser);
             // });
-            client.files.uploadFile('0','Pendant','./public/images/heart.jpg').then( function (response) {
-                var jsonData = JSON.parse(JSON.stringify(response));
-                var fileID = jsonData.entries[0].id;
-                res.send('newgetLabel');
-            });
+            // client.files.uploadFile('0','Pendant','./public/images/heart.jpg').then( function (response) {
+            //     var jsonData = JSON.parse(JSON.stringify(response));
+            //     var fileID = jsonData.entries[0].id;
+            //     res.send('newgetLabel');
+            // });
         });
 
         // const client = sdk.getBasicClient(tokenInfo.accessToken);

@@ -4,7 +4,7 @@ const Clarifai = require('clarifai');
 var fs = require('fs');
 
 const app = new Clarifai.App({
-    apiKey: '5fdd916715f34b26ab5345b1e709c5cd'
+    apiKey: 'f311839ebcc242d5b3d1c411fd75a27b'
 });
 
 router.get('/', function (req, res, next) {
@@ -19,8 +19,17 @@ router.get('/', function (req, res, next) {
             for(var i=0;i<conceptsArray.length;i++){
                 tagArray.push(conceptsArray[i].name);
             }
-            res.render('index',{img:'./images/'+req.query.img, data:tagArray});
 
+            var stream = fs.createReadStream('./public/images/'+req.query.img);
+            var folderID = "0";
+            const client = sdk.getBasicClient(vartoken.accessToken);
+            client.files.uploadFile(folderID,req.query.img , stream)
+                .then(file => {
+
+                });
+            //res.render('index',{file:"./images/"+req.query.img});
+            //res.send("output",{tags:tagArray,img:"./images/"+req.query.img});
+            res.status({tags:tagArray,img:"./images/"+req.query.img}).send('output');
 
         },
         function(err) {

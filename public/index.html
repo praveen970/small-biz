@@ -100,10 +100,26 @@
       <p><a href="#">Link</a></p>
       <p><a href="#">Link</a></p>-->
     </div>
-    <div class="col-sm-8 text-left"> 
+    <div class="col-sm-8 text-left">
+
       <h1>Welcome</h1>
       <p>Your own smart content generation assistant!</p>
       <hr>
+        <input id = "bbb" type="button" value="BoxAuth" onclick = "window.location.href = '/auth'"/>
+        <script>
+            function bFunction(){
+                console.log("bFunction");
+                if(vartoken == 0) {
+                    window.location.href = '/auth';
+
+                }
+
+                else{
+                    document.getElementById("bbb").disabled = true;
+                }
+            }
+
+        </script>
       <h3>Upload Image</h3>
         <form  action="/images" method="POST" enctype="multipart/form-data">
           <div id="image-preview-div" style="display: none">
@@ -138,11 +154,20 @@
         <div>
        <p><b>Your product can be best described as: </b> </p>
 
-       <script type="text/javascript"></script>
+
      </div>
     </div>
+      <div id="holder"><script type="text/javascript">
+
+
+          var arr = <%= data%>;
+          var holder = document.getElementById("holder");
+          for(var i=0; i < arr.length; i++)
+              holder.innerHTML += "<p>"+arr[i]+"</p><br>";
+
+      </script></div>
     <div class="col-sm-2 sidenav">
-      <img src = {img}>
+      <img src = "<%= typeof file!= 'undefined? file: ''%>" class="responsive-img">
     </div>
   </div>
 </div>
