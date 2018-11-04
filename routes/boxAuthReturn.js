@@ -1,12 +1,17 @@
 var express = require('express');
 var router = express.Router();
-
+const appConfig = require('./boxConfig.js');
+const boxSDK = appConfig.boxSDK;                // Box SDK
+const TokenStore = require('./token-store.js'); // Token storage
 
 router.get('/', function(req, res) {
     // Extract auth code and state
     const state = req.query.state;
     const code = req.query.code;
-
+    const sdk = new boxSDK({
+        clientID: appConfig.oauthClientId,
+        clientSecret: appConfig.oauthClientSecret
+    });
     // Exchange auth code for an access token
     sdk.getTokensAuthorizationCodeGrant(code, null, function(err, tokenInfo) {
         if (err) {

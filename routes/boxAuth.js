@@ -6,7 +6,7 @@ const boxSDK = appConfig.boxSDK;                // Box SDK
 const bodyParser = require('body-parser');      // Allow JSON and URL encoded HTTP responses
 const http = require('http');                   // HTTP for Express server
 const querystring = require('querystring');     // Querystring stringifier
-const TokenStore = require('./token-store.js'); // Token storage
+
 
 // Create a new Box SDK instance
 const sdk = new boxSDK({
