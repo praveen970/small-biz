@@ -17,7 +17,6 @@ router.get('/', function(req, res) {
         if (err) {
             console.error(err);
         }
-
         // Create new token store instance, and write to it
         var tokenStore = new TokenStore();
         tokenStore.write(tokenInfo, function(storeErr) {
@@ -36,7 +35,7 @@ router.get('/', function(req, res) {
             client.files.uploadFile('0','Pendant','./public/images/heart.jpg').then( function (response) {
                 var jsonData = JSON.parse(JSON.stringify(response));
                 var fileID = jsonData.entries[0].id;
-                res.send(fileID)
+                res.send('newgetLabel');
             });
         });
 

@@ -10,7 +10,7 @@ const app = new Clarifai.App({
 router.get('/', function (req, res, next) {
     var code = req.query.code;
     console.log(code);
-    var imgStr= fs.readFileSync('./public/images/heart.jpg','base64');
+    var imgStr= fs.readFileSync('./public/images/'+req.query.img,'base64');
     app.models.predict(Clarifai.GENERAL_MODEL, imgStr).then(
         function(response) {
             var jsonData = JSON.parse(JSON.stringify(response));
@@ -19,7 +19,7 @@ router.get('/', function (req, res, next) {
             for(var i=0;i<conceptsArray.length;i++){
                 tagArray.push(conceptsArray[i].name);
             }
-            res.send(tagArray)
+            res.render('index',{img:'./images/'+req.query.img, data:tagArray});
 
 
         },

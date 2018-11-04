@@ -1,9 +1,155 @@
 <!DOCTYPE html>
-<html>
-
-</html>
-
+<html lang="en">
 <head>
   <title>SnapTag</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 450px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #F7DC6F;
+      height: 100%;
+    }
+    /* Image preview details */
+    .btn-file {
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-file input[type=file] {
+      position: absolute;
+      top: 0;
+      right: 0;
+      min-width: 100%;
+      min-height: 100%;
+      font-size: 100px;
+      text-align: right;
+      filter: alpha(opacity=0);
+      opacity: 0;
+      outline: none;
+      background: white;
+      cursor: inherit;
+      display: block;
+    }
+
+    #img-upload{
+        width: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #F0B27A;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
+    }
+
+
+  </style>
 </head>
-<p>Express</p><input type="button" value="BoxAuth" onclick="window.location.href='/auth';">
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <!--<span class="icon-bar"></span>
+        <span class="icon-bar"></span>    -->                   
+      </button>
+     <i><em> <a class="navbar-brand" href="#">SNAPTAG!</a></i></em>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Digital Marketing made easy!</a></li>
+       <!-- <li><a href="#">About</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Contact</a></li> -->
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+<div class="container-fluid text-center" bgcolor="FFFF99">    
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+      <!--<p><a href="#">Link</a></p>
+      <p><a href="#">Link</a></p>
+      <p><a href="#">Link</a></p>-->
+    </div>
+    <div class="col-sm-8 text-left"> 
+      <h1>Welcome</h1>
+      <p>Your own smart content generation assistant!</p>
+      <hr>
+      <h3>Upload Image</h3>
+        <form  action="/images" method="POST" enctype="multipart/form-data">
+          <div id="image-preview-div" style="display: none">
+            <label for="exampleInputFile">Selected image:</label>
+            <br>
+            <img id="preview-img" src="noimage">
+          </div>
+          <!-- Drop Zone -->
+          <h4>Or drag and drop files below</h4>
+          <div class="upload-drop-zone" id="drop-zone">
+            
+          </div>
+          <div class="form-group">
+            <input type="file" name="image">
+          <button class="btn btn-lg btn-primary" id="upload-button" type="submit" enabled>Upload image</button>
+          </div>
+        </form>
+        
+         <!-- Progress Bar 
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+              <span class="sr-only">60% Complete</span>
+            </div> 
+          </div> 
+          <div class="js-upload-finished">
+            <h3>Processed files</h3>
+            <div class="list-group">
+              <a href="#" class="list-group-item list-group-item-success"><span class="badge alert-success pull-right">Success</span>image-01.jpg</a>
+              <a href="#" class="list-group-item list-group-item-success"><span class="badge alert-success pull-right">Success</span>image-02.jpg</a>
+            </div>
+          </div>-->
+        <div>
+       <p><b>Your product can be best described as: </b> </p>
+
+       <script type="text/javascript"></script>
+     </div>
+    </div>
+    <div class="col-sm-2 sidenav">
+      <img src = {img}>
+    </div>
+  </div>
+</div>
+
+<footer class="container-fluid text-center">
+  <p>Created By: Praveen, Sasi, Sharayan, Somya</p>
+</footer>
+
+</body>
+</html>
