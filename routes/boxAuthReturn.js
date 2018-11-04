@@ -8,7 +8,7 @@ router.get('/', function(req, res) {
     // Extract auth code and state
     const state = req.query.state;
     const code = req.query.code;
-    res.send('index');
+    res.render('index');
     const sdk = new boxSDK({
         clientID: appConfig.oauthClientId,
         clientSecret: appConfig.oauthClientSecret
