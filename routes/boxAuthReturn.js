@@ -23,7 +23,7 @@ router.get('/', function(req, res) {
             if (err) {
                 console.error(err);
             }
-        vartoken = tokenInfo;
+
             res.render('index');
             // Create new persistent client with token storage
             var client = sdk.getPersistentClient(tokenInfo, tokenStore);
