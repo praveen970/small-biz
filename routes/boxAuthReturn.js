@@ -33,7 +33,7 @@ router.get('/', function(req, res) {
             //     if(err) throw err;
             //     res.send(currentUser);
             // });
-            client.files.uploadFile('12345','Pendant','./public/images/heart.jpg').then( function (response) {
+            client.files.uploadFile('0','Pendant','./public/images/heart.jpg').then( function (response) {
                 var jsonData = JSON.parse(JSON.stringify(response));
                 var fileID = jsonData.entries[0].id;
                 res.send(fileID)
